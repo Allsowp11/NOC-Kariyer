@@ -1,7 +1,6 @@
-import { useState } from "react"
-import { toast } from "react-toastify";
+import { useRef } from "react"
 export const App = () => {
-  
+  const formRef = useRef()
   const Languages = [
     {
       id: "web",
@@ -33,8 +32,8 @@ export const App = () => {
     }
     
   ]
-  const formHandler = async (event) => {
-    
+  const formHandler = (event) => {
+    event.preventDefault();
     const elements = event.target.elements
 
     const isim = elements.isim.value
@@ -49,13 +48,14 @@ export const App = () => {
     const discord = elements.discord.value === "" ? "Boş" : elements.discord.value
     const lastproject = elements.lastproject.value === "" ? "Boş" : elements.lastproject.value
 
-    const form = {data: {isim, soyisim, email, telefon, adres, nowproject, anythingelse, langs, github, discord, lastproject}}
+    const bildiklerim = `Web: ${langs.web === "on" ? "evet" : "hayır"} | Express: ${langs.express === "on" ? "evet" : "hayır"} | GoLang: ${langs.golang === "on" ? "evet" : "hayır"} | React: ${langs.react === "on" ? "evet" : "hayır"} | TailwindCSS: ${langs.ttailwind === "on" ? "evet" : "hayır"} | Security: ${langs.security === "on" ? "evet" : "hayır"} | Mobile App: ${langs.mobileapp === "on" ? "evet" : "hayır"}`
+    window.open(
+        `mailto:tahiryusufeser@nonofficialcompany.com?body=${encodeURIComponent(
+            `Non-Official Company iş başvurusu\nİsim: ${isim}\nSoyisim: ${soyisim}\nEmail: ${email}\nTelefon: ${telefon}\nAdres: ${adres}\nŞu an ilgilendiğim proje: ${nowproject}\nDaha önce çalıştığım proje: ${lastproject}\nBildiklerim: ${bildiklerim}\nGithub: ${github}\nDiscord: ${discord}\nEklemek istediğim: ${anythingelse}`,
+        )}`,
+    );
 
-    console.log(process.env.REACT_APP_SERVER)
-    await fetch(process.env.REACT_APP_SERVER, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(form)})
-
-    
-  }
+};
 
   return(
     <div className="selection:bg-[#2a324b] selection:text-[#5064a9] 2xl:pt-24 xl:pt-8 pt-12">
@@ -74,7 +74,7 @@ export const App = () => {
               </div>
             </div>
             <div className="">
-              <form onSubmit={formHandler} className="flex space-y-8 lg:space-y-0 flex-col  xl:flex-row xl:space-x-8 xl:space-y-0 lg:space-y-8">
+              <form ref={formRef} onSubmit={formHandler} className="flex space-y-8 lg:space-y-0 flex-col  xl:flex-row xl:space-x-8 xl:space-y-0 lg:space-y-8">
                 <div className="flex flex-col space-y-8 md:space-y-0 lg:space-y-0 md:flex-row md:space-x-8 lg:flex-row lg:space-x-8" >
                   <div className="flex flex-col space-y-4 w-72 h-full">
                     <input
