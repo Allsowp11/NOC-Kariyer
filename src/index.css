@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f7eee5
+}
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+  }
+
+
+textarea::-webkit-scrollbar-track {
+  background: #262624; 
+  border-radius: 25px;
+}
+ 
+
+textarea::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+  border-radius: 25px;
+}
+:hover#arrow{
+
+  animation-name: radius;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+}
+@keyframes radius {
+  0% {transform : rotate(-90deg);}
+  100% {transform : rotate(270deg);}
+}
+body::-webkit-scrollbar {
+  width: 10px;
+  }
+
+
+body::-webkit-scrollbar-track {
+  background: #262624; 
+  border-radius: 25px;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+  border-radius: 25px;
+}
