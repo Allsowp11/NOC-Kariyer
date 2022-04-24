@@ -1,6 +1,6 @@
-import { useRef } from "react"
+
 export const App = () => {
-  const formRef = useRef()
+
   const Languages = [
     {
       id: "web",
@@ -74,7 +74,7 @@ export const App = () => {
               </div>
             </div>
             <div className="">
-              <form ref={formRef} onSubmit={formHandler} className="flex space-y-8 lg:space-y-0 flex-col  xl:flex-row xl:space-x-8 xl:space-y-0 lg:space-y-8">
+              <form onSubmit={formHandler} className="flex space-y-8 lg:space-y-0 flex-col  xl:flex-row xl:space-x-8 xl:space-y-0 lg:space-y-8">
                 <div className="flex flex-col space-y-8 md:space-y-0 lg:space-y-0 md:flex-row md:space-x-8 lg:flex-row lg:space-x-8" >
                   <div className="flex flex-col space-y-4 w-72 h-full">
                     <input
