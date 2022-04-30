@@ -67,7 +67,7 @@ export const App = () => {
         <div className=" lg:px-10 md:px-10 px-5 w-full flex flex-col space-y-12 items-center justify-center md:pt-20 pt-8 pb-20">
             <div className="flex flex-col space-y-4 text-center text-3xl">
               <div>
-                NON Official Company işe alım formu
+                Non-Official Company işe alım formu
               </div>
               <div className="text-xl text-[#8da0ff]">
                 *  ile işaretlenmiş alanları doldurmak zorunludur.
